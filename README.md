@@ -1,5 +1,28 @@
 # sm0ke87_microservices
 sm0ke87 microservices repository
+## Doceker-4
+
+* Познакомился с созданием сетей
+* Разограничением контейнеров по сетям
+* Освоены комманды docker-compose
+
+#### Docker-compose
+Добавлены переменные окружения:
+* Логин пользователя в DockerHub
+* Порт приложения
+* Версия приложений
+* COMPOSE_PROJECT_NAME
+
+#### Задание со *
+Файл docker-compose.override.yml добавлены:
+* Внесена опция command добавляющая запуск puma с  дополнительными параметрами `--debug -w 2`
+
+## Запуск
+```
+sudo docker-compose up -d
+```
+В момент запуска все контейнеры и сети стартуют с COMPOSE_PROJECT_NAME префиксом
+
 ## Docker-3
 
 * Изучение сборки образов
