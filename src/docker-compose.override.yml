@@ -1,0 +1,53 @@
+version: '3.3'
+services:
+  post_db:
+    image: mongo:3.2
+    volumes:
+      - post_db:/data/db
+    networks:
+      - back_net
+    env_file:
+      - .env
+
+  ui:
+    build: ./ui
+    image: ${USERNAME}/ui:${VERSION}
+    env_file:
+      - .env
+    ports:
+      - ${PORT}:9292/tcp
+    networks:
+      - front_net
+    command: ["puma", "--debug", "-w", "2"]
+
+  post:
+    build: ./post-py
+    image: ${USERNAME}/post:${VERSION}
+    env_file:
+      - .env
+    networks:
+      - back_net
+      - front_net
+
+  comment:
+    build: ./comment
+    image: ${USERNAME}/comment:${VERSION}
+    env_file:
+      - .env
+    networks:
+      - front_net
+      - back_net
+    command: ["puma", "--debug", "-w", "2"]
+
+volumes:
+  post_db:
+
+networks:
+  back_net:
+    ipam:
+      config:
+        - subnet: 10.0.2.0/24
+  front_net:
+    ipam:
+      config:
+        - subnet: 10.0.1.0/24
