@@ -1,0 +1,16 @@
+build_info.txt
+prometheus/
+## python specific
+*.pyc
+venv
+## env ignore
+.env
+##idea
+.idea
+#terraform
+*.tfstate
+*.tfstate.backup
+gitlab-ci/metadata
+*terraform.lock.hcl
+gitlab-ci/.terraform
+gitlab-ci/terraform.tfvars
