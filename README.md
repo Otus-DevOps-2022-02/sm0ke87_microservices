@@ -1,5 +1,15 @@
 # sm0ke87_microservices
 sm0ke87 microservices repository
+## Gitlab CI-1
+
+* Написан terraform для разворачивания ВМ в YC
+* Ansible роль для установки docker, docker-compose и запуска контейнеров
+* Ansible запускается как провижинер к terraform
+* Для получения рута в Gitlab-CI нужно сделать так:
+```
+docker exec -ti  gitlab_web_1 grep 'Password:' /etc/gitlab/initial_root_password
+```
+
 ## Doceker-4
 
 * Познакомился с созданием сетей
