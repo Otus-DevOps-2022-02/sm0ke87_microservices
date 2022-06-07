@@ -21,7 +21,7 @@ resource "yandex_compute_instance" "gitlab" {
 
   resources {
     cores  = 2
-    memory = 4
+    memory = 6
 
   }
 
