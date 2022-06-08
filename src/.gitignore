@@ -7,3 +7,5 @@ prometheus/
 ## env ignore
 .env
 .idea
+*.tfstate
+*.tfstate.backup
