@@ -1,5 +1,18 @@
 # sm0ke87_microservices
 sm0ke87 microservices repository
+## Monitoring-1
+
+* Изучены prometheus: запуск, конфигурация и веб-интерфейс 
+* Мониторинг сервисов 
+* Сбор метрик хоста с использованием экспортера
+
+* Ссылки на DockerHub:
+[ui](https://hub.docker.com/repository/docker/sm0ke87/ui)
+[comment](https://hub.docker.com/repository/docker/sm0ke87/comment)
+[post](https://hub.docker.com/repository/docker/sm0ke87/post)
+[prometheus](https://hub.docker.com/repository/docker/sm0ke87/prometheus)
+
+
 ## Gitlab CI-1
 
 * Написан terraform для разворачивания ВМ в YC
@@ -10,7 +23,7 @@ sm0ke87 microservices repository
 docker exec -ti  gitlab_web_1 grep 'Password:' /etc/gitlab/initial_root_password
 ```
 
-## Doceker-4
+## Docker-4
 
 * Познакомился с созданием сетей
 * Разограничением контейнеров по сетям
