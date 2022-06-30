@@ -1,5 +1,33 @@
 # sm0ke87_microservices
 sm0ke87 microservices repository
+## Logging-1
+* Изучены возможности перенаправлять логи в стек ELK от приложения через Fluend
+* Изучены возможности Kibana
+* Изучены фильтры Fluend, но они работают паршиво 
+```
+При сборке контейнера последний лог будет говорить, о том, что проблема в fluent.cong,
+обойти данную историю можно использовав директивы <parce>, но у меня не получилось, зато 
+контенер собирался и я получал уже логи ошибки самого fluend о невозможности использовать парсер
+```
+* Изучен Zipkin
+
+* Проблема багнутого приложения связанна с тем, что в коде захардкодены адреса с post:
+```
+POST_SERVICE_HOST ||= ENV['POST_SERVICE_HOST'] || '127.0.0.1'
+POST_SERVICE_PORT ||= ENV['POST_SERVICE_PORT'] || '4567'
+COMMENT_SERVICE_HOST ||= ENV['COMMENT_SERVICE_HOST'] || '127.0.0.1'
+COMMENT_SERVICE_PORT ||= ENV['COMMENT_SERVICE_PORT'] || '4567'
+```
+При сборке докер контейнера приложение будет отправлять именно туда данные.
+
+В тоже время в работающем приложении эти ENV переопределены:
+```
+ENV POST_SERVICE_HOST post
+ENV POST_SERVICE_PORT 5000
+ENV COMMENT_SERVICE_HOST comment
+ENV COMMENT_SERVICE_PORT 9292
+```
+
 ## Monitoring-1
 
 * Изучены prometheus: запуск, конфигурация и веб-интерфейс 
