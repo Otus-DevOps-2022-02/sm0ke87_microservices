@@ -47,3 +47,12 @@
        name: kubectl=1.16.11-00
        state: present
        force: yes
+  
+   - name: copy calico
+     ansible.builtin.copy:
+       src: calico.yaml
+       dest: /tmp/calico.yml
+       owner: sm0ke
+       group: sm0ke
+       mode: '0644'
+       backup: yes
